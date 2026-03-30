@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Ronce,AI Engineer & Software Developer</title>
+  <meta name="description" content="Portfolio of Alex Ronce,CS student, AI engineer, and hackathon builder based in Los Angeles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080a0f;
+      --bg2: #0d1017;
+      --bg3: #111520;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text: #f0f2f8;
+      --muted: #6b7280;
+      --accent: #3b82f6;
+      --accent2: #06b6d4;
+      --accent3: #8b5cf6;
+      --green: #10b981;
+      --red: #ef4444;
+      --orange: #f59e0b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(59,130,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      border: 1px solid rgba(59,130,246,0.3);
+      padding: 0.35rem 0.75rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+      background: rgba(59,130,246,0.05);
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 .line { display: block; }
+    h1 .accent { color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border2);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero-photo-frame {
+      width: 260px;
+      height: 320px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      position: relative;
+    }
+
+    .hero-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .hero-photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(8,10,15,0.6));
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: -1rem;
+      left: -1.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .hero-badge-float .badge-title { font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .hero-badge-float .badge-sub { color: var(--muted); font-size: 0.72rem; }
+
+    /* SECTION */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* PROJECTS */
+    #projects { background: var(--bg2); }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      border-color: var(--border2);
+      transform: translateY(-2px);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .project-title-wrap {}
+
+    .project-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .project-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .project-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .project-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    .badge-google { background: rgba(59,130,246,0.1); color: var(--accent); border: 1px solid rgba(59,130,246,0.2); }
+    .badge-ucla { background: rgba(139,92,246,0.1); color: var(--accent3); border: 1px solid rgba(139,92,246,0.2); }
+    .badge-smc { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+    .badge-coming { background: rgba(245,158,11,0.1); color: var(--orange); border: 1px solid rgba(245,158,11,0.2); }
+    .badge-chapman { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .project-features li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .project-features li::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--bg3);
+      color: var(--muted);
+      border-radius: 2px;
+      border: 1px solid var(--border);
+    }
+
+    .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .link-github {
+      color: var(--text);
+      border: 1px solid var(--border2);
+      background: transparent;
+    }
+    .link-github:hover { border-color: var(--text); }
+
+    .link-youtube {
+      color: #ff4444;
+      border: 1px solid rgba(255,68,68,0.3);
+      background: rgba(255,68,68,0.05);
+    }
+    .link-youtube:hover { background: rgba(255,68,68,0.1); }
+
+    .link-demo {
+      color: var(--accent2);
+      border: 1px solid rgba(6,182,212,0.3);
+      background: rgba(6,182,212,0.05);
+    }
+    .link-demo:hover { background: rgba(6,182,212,0.1); }
+
+    /* COMING SOON */
+    .project-card-coming {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--bg),
+        var(--bg) 10px,
+        var(--bg2) 10px,
+        var(--bg2) 20px
+      );
+      border: 1px dashed var(--border2);
+    }
+
+    .coming-inner {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 2rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .skill-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-list li:last-child { border-bottom: none; }
+    .skill-list li::before { content: '▸'; color: var(--accent); font-size: 0.7rem; }
+
+    /* ABOUT */
+    #about { background: var(--bg2); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .highlight {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .highlight-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-blue { background: var(--accent); }
+    .dot-purple { background: var(--accent3); }
+    .dot-green { background: var(--green); }
+    .dot-orange { background: var(--orange); }
+
+    .about-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      aspect-ratio: 3/4;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-text-block h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-text-block p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--border2); }
+
+    .contact-link-icon {
+      font-size: 1.1rem;
+      width: 32px;
+      text-align: center;
+    }
+
+    .contact-link-text { display: flex; flex-direction: column; }
+    .contact-link-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .contact-link-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text > * {
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-tag { animation-delay: 0.1s; }
+    h1 { animation-delay: 0.2s; }
+    .hero-desc { animation-delay: 0.3s; }
+    .hero-btns { animation-delay: 0.4s; }
+    .hero-stats { animation-delay: 0.5s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      .project-features { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Alex Ronce</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="https://pantherhacks.dev" target="_blank" rel="noopener">PantherHacks 2026 · Chapman University</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Available for SWE Internships, Summer 2026</div>
+      <h1>
+        <span class="line">AI Engineer,</span>
+        <span class="line accent">Builder.</span>
+      </h1>
+      <p class="hero-desc" style="font-size:0.95rem;">
+        CS Student @SMC | AI, Software &amp; Semiconductor | Python • Java • ML
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
+        <span style="font-size:0.78rem;padding:0.3rem 0.7rem;border-radius:3px;background:rgba(139,92,246,0.1);color:#8b5cf6;border:1px solid rgba(139,92,246,0.25);">USC CHIPS Fellows Program</span>
+        <span style="font-size:0.78rem;padding:0.3rem 0.7rem;border-radius:3px;background:rgba(59,130,246,0.1);color:#3b82f6;border:1px solid rgba(59,130,246,0.25);">AI Hackathon, Google DeepMind x UCLA</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/alexronce4-lgtm" target="_blank" class="btn btn-secondary">GitHub</a>
+        <a href="https://linkedin.com/in/alex-ronce-cs" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">AI Projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Hackathons</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3.9</span>
+          <span class="stat-label">GPA</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Languages</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="alex-ronce.jpg" alt="Alex Ronce" />
+      </div>
+      <div class="hero-badge-float">
+        <div class="badge-title">USC CHIPS Fellow</div>
+        <div class="badge-sub">Semiconductor & AI Program</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">// Featured Work</div>
+    <h2>Projects</h2>
+
+    <!-- AURORA -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title-wrap">
+          <div class="project-num">01 / 03</div>
+          <div class="project-title">AURORA,Global Energy Crisis Simulator</div>
+          <div class="project-subtitle">Google DeepMind × UCLA Hackathon · March 2026</div>
+        </div>
+        <div class="project-badges">
+          <span class="badge badge-google">Google DeepMind</span>
+          <span class="badge badge-ucla">UCLA</span>
+        </div>
+      </div>
+
+      <p class="project-desc">
+        Real-time global energy crisis simulator powered by a multi-agent Gemini 3.1 Pro architecture.
+        Users select a target city and adjust parameters,fossil fuel reliance, geopolitical tension,
+        renewable integration,and two AI agents generate a structured crisis response plan with full audit trail.
+      </p>
+
+      <ul class="project-features">
+        <li>Planner to Critic to Verdict multi-agent pipeline with human-in-the-loop validation</li>
+        <li>Imagen 3 (Nano Banana) generates city-specific photorealistic crisis projections</li>
+        <li>Live War Room UI with reactive risk orb, real-time cognition logs, and SQLite audit trail</li>
+        <li>Custom Web AudioContext API bridge for zero-latency audio on Safari</li>
+        <li>Structured JSON outputs with defensive parsing and safe fallbacks</li>
+        <li>Deployed on Streamlit Cloud,fully accessible, no login required</li>
+      </ul>
+
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Gemini 3.1 Pro</span>
+        <span class="tag">Imagen 3</span>
+        <span class="tag">Multi-Agent</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">Web AudioContext API</span>
+        <span class="tag">Google DeepMind</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/alexronce4-lgtm/AURORA-Crisis-Simulator" target="_blank" rel="noopener" class="project-link link-github">
+          ⬡ GitHub
+        </a>
+        <a href="https://www.youtube.com/watch?v=c2e655Sgk9c" target="_blank" rel="noopener" class="project-link link-youtube">
+          ▶ Demo Video
+        </a>
+      </div>
+    </div>
+
+    <!-- INCIDENT API -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title-wrap">
+          <div class="project-num">02 / 03</div>
+          <div class="project-title">Production Support Dashboard + Incident API</div>
+          <div class="project-subtitle">CS Independent Study · Santa Monica College · February 2026</div>
+        </div>
+        <div class="project-badges">
+          <span class="badge badge-smc">SMC Independent Study</span>
+        </div>
+      </div>
+
+      <p class="project-desc">
+        A production-grade REST API for managing incidents in real-time engineering environments.
+        Built with JWT authentication, role-based access control, and a complete CI/CD pipeline ,
+        designed to replicate production engineering practices used at tech companies.
+      </p>
+
+      <ul class="project-features">
+        <li>Secure REST API with JWT auth and role-based access (create/update/close/list incidents)</li>
+        <li>Relational data model,Users, Incidents, Events, Notes with CRUD + pagination</li>
+        <li>Incident timeline via event ingestion for debugging and fast triage</li>
+        <li>Dockerized with Docker Compose (API + PostgreSQL) + Swagger UI documentation</li>
+        <li>JUnit tests + GitHub Actions CI pipeline with automated test reports + badges</li>
+        <li>Postman test suite automated with Newman,smoke tests + health checks</li>
+      </ul>
+
+      <div class="project-tags">
+        <span class="tag">Java</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">JWT</span>
+        <span class="tag">Docker</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">JUnit</span>
+        <span class="tag">Swagger</span>
+        <span class="tag">REST API</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/alexronce4-lgtm/incident-api" target="_blank" rel="noopener" class="project-link link-github">
+          ⬡ GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- MIRROR - COMING SOON -->
+    <div class="project-card project-card-coming">
+      <div class="coming-inner">
+        <div class="project-header">
+          <div class="project-title-wrap">
+            <div class="project-num">03 / 03</div>
+            <div class="project-title">MIRROR,AI Health Companion</div>
+            <div class="project-subtitle">PantherHacks 2026 · Chapman University · April 3–5, 2026</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-coming">In Development</span>
+            <span class="badge badge-chapman">Chapman University</span>
+          </div>
+        </div>
+
+        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--orange); margin-top: 0.5rem;">
+          ⏳ In Development
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">// Technical Stack</div>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>Java</li>
+          <li>C++</li>
+          <li>JavaScript / HTML / CSS</li>
+          <li>HLA Assembly</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>AI & Machine Learning</h3>
+        <ul class="skill-list">
+          <li>Gemini API (3.1 Pro, Imagen 3)</li>
+          <li>Multi-Agent Systems</li>
+          <li>Gemini Live TTS / Vision</li>
+          <li>NLP & LLM Integration</li>
+          <li>Scikit-learn</li>
+          <li>DeepLearning.AI Certified</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>Backend & Infrastructure</h3>
+        <ul class="skill-list">
+          <li>Spring Boot / REST APIs</li>
+          <li>PostgreSQL / SQLite</li>
+          <li>Docker / Docker Compose</li>
+          <li>JWT Authentication</li>
+          <li>GitHub Actions CI/CD</li>
+          <li>Streamlit Cloud</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h3>Tools & Practices</h3>
+        <ul class="skill-list">
+          <li>Git / GitHub</li>
+          <li>JUnit / Postman / Newman</li>
+          <li>Swagger / OpenAPI</li>
+          <li>Algorithms (Princeton Certified)</li>
+          <li>Agile / Rapid Prototyping</li>
+          <li>Bilingual: French & English</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">// Background</div>
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          CS student at <strong>Santa Monica College (GPA 3.9)</strong> seeking a Summer 2026 Software Engineering internship. I focus on backend development and machine learning, building production-style systems in Java/Spring Boot and Python, with hands-on experience in REST APIs, PostgreSQL, Docker, CI/CD pipelines, and ML models (regression, classification, recommender systems).
+        </p>
+        <p>
+          Before transitioning into software, I spent 4+ years managing complex mechanical systems in France, leading teams, owning high-visibility projects, and diagnosing failures under pressure. That operational mindset translates directly into how I write and debug code: structured, methodical, and focused on reliability.
+        </p>
+        <p>
+          Recently selected for the <strong>USC CHIPS Fellows Program</strong> at USC Nanolab and the <strong>Build With Gemini Hackathon</strong> at UCLA, hosted by Google DeepMind,two competitive programs that reflect my focus on applied AI and emerging technologies. I'm bilingual (French/English), certified in Princeton's Algorithms I &amp; II and DeepLearning.AI's ML Specialization. Open to SWE, backend, or ML engineering roles.
+        </p>
+
+        <div class="about-highlights">
+          <div class="highlight">
+            <div class="highlight-dot dot-blue"></div>
+            <span>Google DeepMind × UCLA Hackathon participant, March 2026</span>
+          </div>
+          <div class="highlight">
+            <div class="highlight-dot dot-purple"></div>
+            <span>USC CHIPS Fellow, Semiconductor & AI program</span>
+          </div>
+          <div class="highlight">
+            <div class="highlight-dot dot-orange"></div>
+            <span>Princeton Algorithms & DeepLearning.AI certified</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-photo">
+        <img src="alex-ronce.jpg" alt="Alex Ronce" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">// Get In Touch</div>
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-text-block">
+        <h3>Get in touch.</h3>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:alexronce4@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          <span class="contact-link-text">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">alexronce4@gmail.com</span>
+          </span>
+        </a>
+        <a href="https://github.com/alexronce4-lgtm" target="_blank" class="contact-link">
+          <span class="contact-link-icon">⬡</span>
+          <span class="contact-link-text">
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-value">github.com/alexronce4-lgtm</span>
+          </span>
+        </a>
+        <a href="https://linkedin.com/in/alex-ronce-cs" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          <span class="contact-link-text">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">linkedin.com/in/alex-ronce-cs</span>
+          </span>
+        </a>
+        <a href="https://youtu.be/c2e655Sgk9c" target="_blank" class="contact-link">
+          <span class="contact-link-icon">▶</span>
+          <span class="contact-link-text">
+            <span class="contact-link-label">AURORA Demo</span>
+            <span class="contact-link-value">youtu.be/c2e655Sgk9c</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> Alex Ronce</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
