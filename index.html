@@ -364,6 +364,7 @@
     .badge-smc { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
     .badge-coming { background: rgba(245,158,11,0.1); color: var(--orange); border: 1px solid rgba(245,158,11,0.2); }
     .badge-chapman { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
+    .badge-healthcare { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
 
     .project-desc {
       color: var(--muted);
@@ -447,24 +448,6 @@
       background: rgba(6,182,212,0.05);
     }
     .link-demo:hover { background: rgba(6,182,212,0.1); }
-
-    /* COMING SOON */
-    .project-card-coming {
-      background: repeating-linear-gradient(
-        45deg,
-        var(--bg),
-        var(--bg) 10px,
-        var(--bg2) 10px,
-        var(--bg2) 20px
-      );
-      border: 1px dashed var(--border2);
-    }
-
-    .coming-inner {
-      background: var(--bg);
-      border-radius: 6px;
-      padding: 2rem;
-    }
 
     /* SKILLS */
     .skills-grid {
@@ -727,11 +710,11 @@
 
       <ul class="project-features">
         <li>Planner to Critic to Verdict multi-agent pipeline with human-in-the-loop validation</li>
-        <li>Imagen 3 (Nano Banana) generates city-specific photorealistic crisis projections</li>
+        <li>Imagen 3 generates city-specific photorealistic crisis projections</li>
         <li>Live War Room UI with reactive risk orb, real-time cognition logs, and SQLite audit trail</li>
         <li>Custom Web AudioContext API bridge for zero-latency audio on Safari</li>
         <li>Structured JSON outputs with defensive parsing and safe fallbacks</li>
-        <li>Deployed on Streamlit Cloud,fully accessible, no login required</li>
+        <li>Deployed on Streamlit Cloud, fully accessible, no login required</li>
       </ul>
 
       <div class="project-tags">
@@ -770,7 +753,7 @@
 
       <p class="project-desc">
         A production-grade REST API for managing incidents in real-time engineering environments.
-        Built with JWT authentication, role-based access control, and a complete CI/CD pipeline ,
+        Built with JWT authentication, role-based access control, and a complete CI/CD pipeline,
         designed to replicate production engineering practices used at tech companies.
       </p>
 
@@ -805,24 +788,50 @@
       </div>
     </div>
 
-    <!-- MIRROR - COMING SOON -->
-    <div class="project-card project-card-coming">
-      <div class="coming-inner">
-        <div class="project-header">
-          <div class="project-title-wrap">
-            <div class="project-num">03 / 03</div>
-            <div class="project-title">MIRROR,AI Health Companion</div>
-            <div class="project-subtitle">PantherHacks 2026 · Chapman University · April 3–5, 2026</div>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-coming">In Development</span>
-            <span class="badge badge-chapman">Chapman University</span>
-          </div>
+    <!-- MIRROR -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title-wrap">
+          <div class="project-num">03 / 03</div>
+          <div class="project-title">MIRROR,Preventive Health AI</div>
+          <div class="project-subtitle">PantherHacks 2026 · Chapman University · April 3–5, 2026</div>
         </div>
+        <div class="project-badges">
+          <span class="badge badge-chapman">Chapman University</span>
+          <span class="badge badge-healthcare">Healthcare Track</span>
+        </div>
+      </div>
 
-        <p style="font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--orange); margin-top: 0.5rem;">
-          ⏳ In Development
-        </p>
+      <p class="project-desc">
+        AI-powered wellness companion built in 48 hours at PantherHacks 2026. MIRROR analyzes facial images
+        using Claude Vision AI to detect early signs of fatigue, stress, and dehydration,turning visual signals
+        into structured health insights and personalized recommendations delivered by a voice companion, Megan.
+      </p>
+
+      <ul class="project-features">
+        <li>Claude Vision AI analyzes 4 facial zones: eyes, skin, muscles, overall posture</li>
+        <li>face-api.js real-time face detection with animated green bounding box overlay</li>
+        <li>3 wellness indicators: Fatigue %, Stress %, Dehydration % with animated progress bars</li>
+        <li>Voice companion "Megan" delivers warm, personalized health insights via Web Speech API</li>
+        <li>Session comparison,tracks wellness score progression across sessions</li>
+        <li>SQLite history with trend chart showing last 5 sessions</li>
+      </ul>
+
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Claude Vision API</span>
+        <span class="tag">face-api.js</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Web Speech API</span>
+        <span class="tag">mkcert HTTPS</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/alexronce4-lgtm/mirror-ai" target="_blank" rel="noopener" class="project-link link-github">
+          ⬡ GitHub
+        </a>
       </div>
     </div>
 
@@ -851,9 +860,9 @@
       <div class="skill-card">
         <h3>AI & Machine Learning</h3>
         <ul class="skill-list">
+          <li>Claude Vision API</li>
           <li>Gemini API (3.1 Pro, Imagen 3)</li>
           <li>Multi-Agent Systems</li>
-          <li>Gemini Live TTS / Vision</li>
           <li>NLP & LLM Integration</li>
           <li>Scikit-learn</li>
           <li>DeepLearning.AI Certified</li>
@@ -868,7 +877,7 @@
           <li>Docker / Docker Compose</li>
           <li>JWT Authentication</li>
           <li>GitHub Actions CI/CD</li>
-          <li>Streamlit Cloud</li>
+          <li>Streamlit Cloud / Flask</li>
         </ul>
       </div>
 
@@ -915,6 +924,10 @@
             <span>USC CHIPS Fellow, Semiconductor & AI program</span>
           </div>
           <div class="highlight">
+            <div class="highlight-dot dot-green"></div>
+            <span>PantherHacks 2026,Healthcare Track, Chapman University</span>
+          </div>
+          <div class="highlight">
             <div class="highlight-dot dot-orange"></div>
             <span>Princeton Algorithms & DeepLearning.AI certified</span>
           </div>
@@ -955,25 +968,10 @@
             <span class="contact-link-value">linkedin.com/in/alex-ronce-cs</span>
           </span>
         </a>
-        <a href="https://youtu.be/c2e655Sgk9c" target="_blank" class="contact-link">
-          <span class="contact-link-icon">▶</span>
-          <span class="contact-link-text">
-            <span class="contact-link-label">AURORA Demo</span>
-            <span class="contact-link-value">youtu.be/c2e655Sgk9c</span>
-          </span>
-        </a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© <span id="year"></span> Alex Ronce</p>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+  <p>© <span id="year"></span>
