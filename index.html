@@ -430,6 +430,40 @@
     /* EXPERIENCE */
     #experience { background: var(--bg); }
 
+    .campus-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .campus-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .campus-item {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .campus-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-left: 0.25rem;
+    }
+
+    .campus-sep { color: var(--border2); font-size: 0.8rem; }
+
     .exp-timeline { display: flex; flex-direction: column; gap: 0.6rem; }
 
     .exp-card {
@@ -1413,46 +1447,12 @@
       </div>
     </div>
 
-    <div class="edu-exp-divider">
-      <span class="section-label" style="margin-bottom:0; margin-top:2.5rem; display:block;">// Campus Leadership</span>
+    <div class="campus-row">
+      <span class="campus-label">// Campus</span>
+      <span class="campus-item">ASMSC — External Affairs Commissioner <span class="campus-date">Apr 2026–Present</span></span>
+      <span class="campus-sep">·</span>
+      <span class="campus-item">French Table Organizer <span class="campus-date">2026</span></span>
     </div>
-
-    <div class="exp-timeline">
-
-        <div class="exp-card">
-          <div class="exp-header">
-            <div>
-              <div class="exp-org">Associated Students of Santa Monica College</div>
-              <div class="exp-role">External Affairs Commissioner</div>
-              <div class="exp-meta">Apr 2026 – Present · Santa Monica, CA</div>
-            </div>
-            <span class="badge badge-smc">ASMSC</span>
-          </div>
-          <ul class="exp-bullets">
-            <li>Supported student-facing outreach initiatives, external partnerships, and event logistics for the Associated Students of Santa Monica College.</li>
-            <li>Coordinated communication with community partners, guest speakers, and campus stakeholders.</li>
-            <li>Supported event planning logistics, timelines, and deliverables for student programs.</li>
-            <li>Represented student interests in external-facing communications and cross-campus collaboration.</li>
-          </ul>
-        </div>
-
-        <div class="exp-card">
-          <div class="exp-header">
-            <div>
-              <div class="exp-org">Santa Monica College</div>
-              <div class="exp-role">French Table Organizer / Cultural Exchange Host</div>
-              <div class="exp-meta">2026 · Santa Monica, CA</div>
-            </div>
-            <span class="badge badge-smc">Campus Life</span>
-          </div>
-          <ul class="exp-bullets">
-            <li>Organized informal French conversation sessions to help students practice language skills and engage with French culture.</li>
-            <li>Created a welcoming environment for language exchange and cultural discussion.</li>
-            <li>Helped students improve confidence in conversational French.</li>
-          </ul>
-        </div>
-
-      </div>
   </div>
 </section>
 
