@@ -322,20 +322,12 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .edu-initials {
-      width: 46px; height: 46px;
-      background: rgba(59,130,246,0.08);
-      border: 1px solid rgba(59,130,246,0.18);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--accent);
+    .edu-logo-img {
+      width: 90px;
+      height: auto;
       flex-shrink: 0;
-      letter-spacing: 0.03em;
+      opacity: 0.9;
+      filter: brightness(1.05);
     }
 
     .edu-school {
@@ -1377,7 +1369,7 @@
       <!-- SMC Card -->
       <div class="edu-card-main">
         <div class="edu-card-header">
-          <div class="edu-initials">SMC</div>
+          <img src="smc-logo.jpg" alt="Santa Monica College" class="edu-logo-img" />
           <div>
             <div class="edu-school">Santa Monica College</div>
             <div class="edu-degree">Associate of Science in Computer Science</div>
@@ -1414,15 +1406,8 @@
         <div class="edu-program-card">
           <div class="edu-prog-icon">◎</div>
           <div>
-            <div class="edu-prog-name">California Community Colleges AI Summer Camp</div>
-            <div class="edu-prog-detail">Selected participant · AI and machine learning intensive program</div>
-          </div>
-        </div>
-        <div class="edu-program-card">
-          <div class="edu-prog-icon">⬡</div>
-          <div>
-            <div class="edu-prog-name">Google DeepMind × UCLA — Build with Gemini</div>
-            <div class="edu-prog-detail">AI project experience · Hackathon · March 2026 · Los Angeles, CA</div>
+            <div class="edu-prog-name">CCC AI Summer Camp — Cal Poly DxHub × AWS</div>
+            <div class="edu-prog-detail">Selected participant · 5-day hands-on AI/ML hackathon · Cal Poly's Digital Transformation Hub, powered by AWS</div>
           </div>
         </div>
       </div>
