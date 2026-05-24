@@ -430,39 +430,10 @@
     /* EXPERIENCE */
     #experience { background: var(--bg); }
 
-    .campus-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .campus-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-
-    .campus-item {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .campus-date {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      color: var(--muted);
-      opacity: 0.6;
-      margin-left: 0.25rem;
-    }
-
-    .campus-sep { color: var(--border2); font-size: 0.8rem; }
+    .edu-program-card--sm { opacity: 0.75; }
+    .edu-program-card--sm .edu-prog-name { font-size: 0.8rem; }
+    .edu-program-card--sm .edu-prog-detail { font-size: 0.72rem; }
+    .edu-program-card--sm .edu-prog-icon { font-size: 0.75rem; color: var(--muted); }
 
     .exp-timeline { display: flex; flex-direction: column; gap: 0.6rem; }
 
@@ -1444,14 +1415,21 @@
             <div class="edu-prog-detail">Selected participant · 5-day hands-on AI/ML hackathon · Cal Poly's Digital Transformation Hub, powered by AWS</div>
           </div>
         </div>
+        <div class="edu-program-card edu-program-card--sm">
+          <div class="edu-prog-icon">◈</div>
+          <div>
+            <div class="edu-prog-name">ASMSC — External Affairs Commissioner</div>
+            <div class="edu-prog-detail">Apr 2026 – Present</div>
+          </div>
+        </div>
+        <div class="edu-program-card edu-program-card--sm">
+          <div class="edu-prog-icon">◈</div>
+          <div>
+            <div class="edu-prog-name">French Table Organizer</div>
+            <div class="edu-prog-detail">French conversation &amp; cultural exchange · 2026</div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="campus-row">
-      <span class="campus-label">// Campus</span>
-      <span class="campus-item">ASMSC — External Affairs Commissioner <span class="campus-date">Apr 2026–Present</span></span>
-      <span class="campus-sep">·</span>
-      <span class="campus-item">French Table Organizer <span class="campus-date">2026</span></span>
     </div>
   </div>
 </section>
