@@ -382,6 +382,7 @@
 
     .venture-wrap {
       position: relative;
+      overflow: hidden;
     }
 
     .venture-glow-bg {
@@ -780,14 +781,24 @@
       .chips-thumbs { grid-template-columns: repeat(3, 1fr); }
       .chips-cards { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
-      .venture-card { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+      .venture-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 2rem 1.75rem 1.75rem;
+      }
+      .venture-content { min-width: 0; width: 100%; }
       .venture-visual { display: none; }
+      .venture-glow-bg { left: -160px; top: -160px; width: 320px; height: 320px; }
+      .venture-glow-bg-r { display: none; }
     }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .chips-bullets { grid-template-columns: 1fr; }
-      .venture-card { padding: 1.5rem; }
+      .venture-card { padding: 1.5rem 1.25rem; }
+      .vpill-status { font-size: 0.6rem; }
+      .venture-company { font-size: clamp(1.75rem, 8vw, 2.5rem); }
     }
   </style>
 </head>
