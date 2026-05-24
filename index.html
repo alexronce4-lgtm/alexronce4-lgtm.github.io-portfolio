@@ -51,24 +51,27 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-brand { display: flex; flex-direction: column; gap: 0.1rem; }
-
     .nav-logo {
       font-family: 'Space Mono', monospace;
       font-size: 1rem;
       font-weight: 700;
       color: var(--text);
       letter-spacing: -0.02em;
-      line-height: 1;
+      text-decoration: none;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
 
-    .nav-logo span { color: var(--accent); }
-
-    .nav-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.03em;
+    .nav-logo:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(59,130,246,0.06);
     }
 
     .nav-links { display: flex; gap: 1.75rem; align-items: center; }
@@ -1154,10 +1157,7 @@
 <body>
 
 <nav>
-  <div class="nav-brand">
-    <div class="nav-logo">Alex Ronce<span>.</span></div>
-    <div class="nav-sub">AI Systems · Backend · Venture</div>
-  </div>
+  <a href="#" class="nav-logo">AR</a>
   <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
     <a href="#education">Education</a>
