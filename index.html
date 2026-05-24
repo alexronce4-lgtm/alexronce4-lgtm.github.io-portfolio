@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alex Ronce · AI Engineer & Software Developer</title>
-  <meta name="description" content="Portfolio of Alex Ronce, CS student, AI engineer, and hackathon builder based in Los Angeles." />
+  <title>Alex Ronce · CS Student & AI Builder</title>
+  <meta name="description" content="Alex Ronce — CS student at Santa Monica College building AI-powered backend systems, crisis-response tools, and early-stage venture projects. Available for SWE internships Summer 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -42,42 +42,64 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 1rem 2rem;
+      padding: 0.85rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(8,10,15,0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(8,10,15,0.9);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
 
+    .nav-brand { display: flex; flex-direction: column; gap: 0.1rem; }
+
     .nav-logo {
       font-family: 'Space Mono', monospace;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--text);
       letter-spacing: -0.02em;
+      line-height: 1;
     }
 
     .nav-logo span { color: var(--accent); }
 
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
     .nav-links a {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--muted);
       text-decoration: none;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--border2);
+      color: var(--text);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      line-height: 1;
+    }
 
     /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 8rem 2rem 4rem;
+      padding: 8rem 2rem 5rem;
       position: relative;
       overflow: hidden;
     }
@@ -153,7 +175,7 @@
       font-size: 1.05rem;
       color: var(--muted);
       max-width: 600px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
       line-height: 1.8;
     }
 
@@ -166,15 +188,15 @@
       margin-bottom: 2rem;
     }
 
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
+      padding: 0.7rem 1.4rem;
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       text-decoration: none;
       border-radius: 4px;
@@ -188,10 +210,40 @@
     .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border2); }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
     .stat { display: flex; flex-direction: column; }
     .stat-num { font-family: 'Space Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--text); }
-    .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.1rem; }
+
+    /* PROOF BAR */
+    .proof-bar {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 2rem;
+    }
+
+    .proof-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+      justify-content: center;
+    }
+
+    .proof-item {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .proof-item:hover { color: var(--accent); }
+    .proof-dot { color: var(--border2); font-size: 0.75rem; }
 
     /* SECTION */
     section { padding: 6rem 2rem; }
@@ -235,6 +287,215 @@
     .badge-usc { background: rgba(139,92,246,0.1); color: var(--accent3); border: 1px solid rgba(139,92,246,0.2); }
     .badge-success { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
     .badge-hardware { background: rgba(245,158,11,0.1); color: var(--orange); border: 1px solid rgba(245,158,11,0.2); }
+
+    /* ABOUT */
+    #about { background: var(--bg); }
+    .about-text p { color: var(--muted); margin-bottom: 1.2rem; line-height: 1.8; font-size: 1.02rem; max-width: 780px; }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    /* EDUCATION */
+    #education { background: var(--bg2); }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .edu-card-main {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .edu-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-initials {
+      width: 46px; height: 46px;
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.18);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+
+    .edu-school {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-degree {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .edu-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .edu-cw-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .edu-cw-groups { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .edu-cw-group-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-cw-items {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .edu-programs { display: flex; flex-direction: column; gap: 1rem; }
+
+    .edu-program-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .edu-program-card:hover { border-color: var(--border2); }
+
+    .edu-prog-icon {
+      font-size: 1rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .edu-prog-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-prog-detail {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .edu-prog-link {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .edu-prog-link:hover { color: var(--accent2); }
+
+    /* EXPERIENCE */
+    #experience { background: var(--bg); }
+
+    .exp-timeline { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .exp-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .exp-card:hover { border-color: var(--border2); }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-org {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .exp-role {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+
+    .exp-bullets li {
+      font-size: 0.86rem;
+      color: var(--muted);
+      display: flex;
+      gap: 0.6rem;
+      line-height: 1.65;
+      align-items: flex-start;
+    }
+
+    .exp-bullets li::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
 
     /* PROJECTS */
     #projects { background: var(--bg2); }
@@ -334,22 +595,73 @@
     .chips-card h4 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
     .chips-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
+    /* AWARDS */
+    #awards { background: var(--bg2); }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .award-card-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .award-card-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .award-card-item:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .award-card-item:hover::before { opacity: 1; }
+
+    .award-icon-lg { font-size: 1.4rem; margin-bottom: 0.75rem; }
+
+    .award-title-main {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .award-sub-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .award-detail-text {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
     /* SKILLS */
-    #skills { background: var(--bg2); }
+    #skills { background: var(--bg); }
 
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .skill-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; transition: border-color 0.2s; }
+    .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; transition: border-color 0.2s; }
     .skill-card:hover { border-color: var(--border2); }
     .skill-card h3 { font-family: 'Space Mono', monospace; font-size: 0.78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
     .skill-list { list-style: none; }
     .skill-list li { font-size: 0.88rem; color: var(--muted); padding: 0.35rem 0; border-bottom: 1px solid var(--border); transition: color 0.15s, padding-left 0.15s; }
     .skill-list li:last-child { border-bottom: none; }
     .skill-list li:hover { color: var(--text); padding-left: 0.4rem; }
-
-    /* ABOUT */
-    #about { background: var(--bg); }
-    .about-text p { color: var(--muted); margin-bottom: 1.2rem; line-height: 1.8; font-size: 1.05rem; max-width: 780px; }
-    .about-text strong { color: var(--text); font-weight: 500; }
 
     /* CONTACT */
     #contact { background: var(--bg2); }
@@ -513,6 +825,24 @@
       color: var(--muted);
       line-height: 1.85;
       margin-bottom: 1.3rem;
+    }
+
+    .venture-problem-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .venture-problem {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 1.3rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(59,130,246,0.28);
     }
 
     .venture-contrib-label {
@@ -775,6 +1105,10 @@
     .vnode-svg { display: block; width: 100%; }
 
     /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 900px) {
       .projects-grid { grid-template-columns: 1fr; }
       .chips-gallery { grid-template-columns: 1fr; }
@@ -795,25 +1129,45 @@
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        position: fixed;
+        top: 61px; left: 0; right: 0;
+        flex-direction: column;
+        background: rgba(8,10,15,0.98);
+        backdrop-filter: blur(14px);
+        padding: 1.5rem 2rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--border);
+        z-index: 99;
+      }
+      .nav-hamburger { display: flex; align-items: center; justify-content: center; }
       .chips-bullets { grid-template-columns: 1fr; }
       .venture-card { padding: 1.5rem 1.25rem; }
       .vpill-status { font-size: 0.6rem; }
       .venture-company { font-size: clamp(1.75rem, 8vw, 2.5rem); }
+      .proof-bar-inner { gap: 0.35rem 0.75rem; }
+      .awards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Alex Ronce<span>.</span></div>
-  <div class="nav-links">
+  <div class="nav-brand">
+    <div class="nav-logo">Alex Ronce<span>.</span></div>
+    <div class="nav-sub">AI Systems · Backend · Venture</div>
+  </div>
+  <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
-    <a href="#venture">Venture</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#chips">USC CHIPS</a>
-    <a href="#skills">Skills</a>
+    <a href="#venture">Venture</a>
+    <a href="#awards">Awards</a>
     <a href="#contact">Contact</a>
   </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">☰</button>
 </nav>
 
 <!-- HERO -->
@@ -827,7 +1181,7 @@
       <span class="line accent">AI Builder.</span>
     </h1>
     <p class="hero-desc">
-      CS Student <strong>@ Santa Monica College</strong> · Building production AI systems, multi-agent architectures, and semiconductor research at <strong>USC Nanolab</strong>.
+      CS student at <strong>Santa Monica College</strong> — building AI-powered backend systems, crisis-response tools, and risk-intelligence platforms. From mechanical systems in France to software engineering in California.
     </p>
     <div class="hero-badges">
       <span class="badge badge-usc">USC CHIPS Fellows</span>
@@ -837,9 +1191,9 @@
     </div>
     <div class="hero-btns">
       <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="Alex_Ronce_CV.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Resume ↓</a>
       <a href="https://github.com/alexronce4-lgtm" target="_blank" class="btn btn-secondary">GitHub</a>
       <a href="https://linkedin.com/in/alex-ronce-cs" target="_blank" class="btn btn-secondary">LinkedIn</a>
-      <a href="Alex_Ronce_CV.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Resume ↓</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">6</span><span class="stat-label">Projects</span></div>
@@ -850,6 +1204,21 @@
   </div>
 </section>
 
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <a href="#education" class="proof-item">USC CHIPS Fellow</a>
+    <span class="proof-dot">·</span>
+    <a href="#awards" class="proof-item">Hack2Impact Winner</a>
+    <span class="proof-dot">·</span>
+    <a href="#education" class="proof-item">AI Summer Camp</a>
+    <span class="proof-dot">·</span>
+    <a href="#education" class="proof-item">SMC CS · 3.9 GPA</a>
+    <span class="proof-dot">·</span>
+    <a href="#contact" class="proof-item">SWE Internships Summer 2026</a>
+  </div>
+</div>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
@@ -857,9 +1226,117 @@
     <h2>About.</h2>
     <div class="about-text">
       <p>Before software, I spent <strong>4+ years</strong> working in complex operational environments in France — managing mechanical systems, leading teams, and diagnosing failures under pressure on high-stakes projects, including infrastructure work for the <strong>Paris 2024 Olympic Games</strong>. That background built a specific mindset: think in systems, own the problem, ship something reliable. In 2022, I made a deliberate decision to redirect that into technology and moved to Los Angeles.</p>
-      <p>At <strong>Santa Monica College</strong>, I completed my <strong>Associate of Science in Computer Science</strong> with a <strong>3.9 GPA</strong> while building production-grade systems and competing at top hackathons. Selected for the <strong>USC CHIPS Fellows Program</strong> at USC Nanolab (5% acceptance rate), participated in the <strong>Google DeepMind × UCLA</strong> hackathon, and won <strong>1st Place at Hack2Impact 2026</strong>.</p>
+      <p>At <strong>Santa Monica College</strong>, I am completing my <strong>Associate of Science in Computer Science</strong> with a <strong>3.9 GPA</strong>, focusing on backend development, applied AI, and systems design. Selected for the <strong>USC CHIPS Fellows Program</strong> at USC Nanolab, participated in the <strong>Google DeepMind × UCLA</strong> hackathon, and won <strong>1st Place at Hack2Impact 2026</strong>.</p>
       <p>I build AI systems for problems that have real consequences — emergency response, trade intelligence, supply chain analysis. Long term, I want to build at the intersection of AI infrastructure and high-stakes decision-making.</p>
       <p style="color:var(--muted);font-size:0.9rem;">Bilingual (FR/EN) · Princeton Algorithms I &amp; II · DeepLearning.AI certified.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">// Academic Background</div>
+    <h2>Education.</h2>
+    <div class="edu-grid">
+
+      <!-- SMC Card -->
+      <div class="edu-card-main">
+        <div class="edu-card-header">
+          <div class="edu-initials">SMC</div>
+          <div>
+            <div class="edu-school">Santa Monica College</div>
+            <div class="edu-degree">Associate of Science in Computer Science</div>
+            <div class="edu-meta">GPA: 3.9 · Expected 2026 · Santa Monica, CA</div>
+          </div>
+        </div>
+        <div class="edu-cw-label">Relevant Coursework</div>
+        <div class="edu-cw-groups">
+          <div>
+            <div class="edu-cw-group-title">Computer Science</div>
+            <div class="edu-cw-items">C++ Programming · Java Programming · Data Structures · Discrete Structures · CS Independent Study</div>
+          </div>
+          <div>
+            <div class="edu-cw-group-title">Systems &amp; Hardware</div>
+            <div class="edu-cw-items">Assembly Language (HLA) · Digital Logic</div>
+          </div>
+          <div>
+            <div class="edu-cw-group-title">Math &amp; Reasoning</div>
+            <div class="edu-cw-items">Calculus · English Critical Thinking</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Programs -->
+      <div class="edu-programs">
+        <div class="edu-program-card">
+          <div class="edu-prog-icon">✦</div>
+          <div>
+            <div class="edu-prog-name">USC CHIPS Fellows Program</div>
+            <div class="edu-prog-detail">Hands-on semiconductor training at USC Nanolab · 52 hours · Spring 2026</div>
+            <a href="#chips" class="edu-prog-link">See full details ↓</a>
+          </div>
+        </div>
+        <div class="edu-program-card">
+          <div class="edu-prog-icon">◎</div>
+          <div>
+            <div class="edu-prog-name">California Community Colleges AI Summer Camp</div>
+            <div class="edu-prog-detail">Selected participant · AI and machine learning intensive program</div>
+          </div>
+        </div>
+        <div class="edu-program-card">
+          <div class="edu-prog-icon">⬡</div>
+          <div>
+            <div class="edu-prog-name">Google DeepMind × UCLA — Build with Gemini</div>
+            <div class="edu-prog-detail">AI project experience · Hackathon · March 2026 · Los Angeles, CA</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">// Campus Leadership</div>
+    <h2>Experience.</h2>
+    <div class="exp-timeline">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-org">Associated Students of Santa Monica College</div>
+            <div class="exp-role">External Affairs Commissioner</div>
+            <div class="exp-meta">Apr 2026 – Present · Santa Monica, CA</div>
+          </div>
+          <span class="badge badge-smc">ASMSC</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Supported student-facing outreach initiatives, external partnerships, and event logistics for the Associated Students of Santa Monica College.</li>
+          <li>Coordinated communication with community partners, guest speakers, and campus stakeholders.</li>
+          <li>Supported event planning logistics, timelines, and deliverables for student programs.</li>
+          <li>Represented student interests in external-facing communications and cross-campus collaboration.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-org">Santa Monica College</div>
+            <div class="exp-role">French Table Organizer / Cultural Exchange Host</div>
+            <div class="exp-meta">2026 · Santa Monica, CA</div>
+          </div>
+          <span class="badge badge-smc">Campus Life</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Organized informal French conversation sessions to help students practice language skills and engage with French culture.</li>
+          <li>Created a welcoming environment for language exchange and cultural discussion.</li>
+          <li>Helped students improve confidence in conversational French.</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
@@ -877,34 +1354,39 @@
         <div class="venture-content">
           <div class="venture-eyebrow">Startup Venture</div>
           <div class="venture-company">Counterpass AI</div>
-          <div class="venture-product">AI Trade Intelligence Platform</div>
+          <div class="venture-product">Maritime Intelligence Platform</div>
 
           <div class="venture-pills">
             <span class="vpill-role">Co-founder &amp; Technical Lead</span>
             <span class="vpill-status">Early-stage · Pre-revenue · In development</span>
           </div>
 
+          <div class="venture-problem-label">Problem</div>
+          <div class="venture-problem">
+            Port delays and demurrage fees create expensive blind spots for importers, brokers, and logistics operators — critical intelligence that is fragmented, delayed, or inaccessible.
+          </div>
+
           <p class="venture-desc">
-            Counterpass AI is an early-stage AI trade-intelligence startup focused on detecting illegal transshipment, origin-fraud risk, entity-resolution patterns, and high-risk import activity across global supply chains.
+            Counterpass AI is an early-stage maritime intelligence platform focused on port-risk analysis, congestion monitoring, and demurrage risk detection. Building an AI-powered dashboard that surfaces shipment risk, port conditions, and operational bottlenecks in one place.
           </p>
 
-          <div class="venture-contrib-label">My Contribution</div>
+          <div class="venture-contrib-label">My Role</div>
           <div class="venture-contrib">
-            Technical strategy, AI systems architecture, risk-scoring logic, product roadmap, and investor-readiness preparation.
+            Co-founder &amp; Technical Lead — product architecture, backend logic, risk-model design, and demo development.
           </div>
 
           <div class="venture-cred-box">
             <span class="venture-cred-icon">✦</span>
             <div class="venture-cred-text">
-              <strong>Pepperdine Graziadio · Most Fundable Companies</strong> — Completed the Quarter-Finals review process, receiving structured investor-readiness feedback across market opportunity, go-to-market strategy, IP positioning, team composition, and fundraising readiness.
+              <strong>Pepperdine Graziadio · Most Fundable Companies</strong> — Completed the quarter-finals review process, receiving structured investor-readiness feedback across market opportunity, go-to-market strategy, team composition, and fundraising readiness.
             </div>
           </div>
 
           <div class="venture-tags">
+            <span class="vtag">Port Risk Analysis</span>
+            <span class="vtag">Demurrage Detection</span>
             <span class="vtag">AI Risk Scoring</span>
-            <span class="vtag">Entity Resolution</span>
-            <span class="vtag">Graph Intelligence</span>
-            <span class="vtag">Explainable AI</span>
+            <span class="vtag">Supply Chain Intelligence</span>
           </div>
 
           <a href="https://counterpass.ai" target="_blank" rel="noopener" class="venture-cta">↗ counterpass.ai</a>
@@ -913,20 +1395,20 @@
         <!-- Right: Dashboard Visual -->
         <div class="venture-visual">
           <div class="vdash-bar">
-            <span class="vdash-title">Trade Intelligence Platform</span>
+            <span class="vdash-title">Maritime Intelligence Platform</span>
             <span class="vdash-status">In Development</span>
           </div>
 
           <div class="vmodule-grid">
             <div class="vmod">
               <div class="vmod-icon">◈</div>
-              <div class="vmod-name">Risk Scoring Engine</div>
-              <div class="vmod-sub">Multi-factor transshipment risk assessment</div>
+              <div class="vmod-name">Port Risk Engine</div>
+              <div class="vmod-sub">Congestion &amp; demurrage risk scoring</div>
             </div>
             <div class="vmod">
               <div class="vmod-icon">⬡</div>
-              <div class="vmod-name">Entity Resolution</div>
-              <div class="vmod-sub">Cross-database supplier identity graph</div>
+              <div class="vmod-name">Shipment Tracker</div>
+              <div class="vmod-sub">Real-time status &amp; delay alerts</div>
             </div>
             <div class="vmod">
               <div class="vmod-icon">✦</div>
@@ -935,30 +1417,30 @@
             </div>
             <div class="vmod">
               <div class="vmod-icon">◎</div>
-              <div class="vmod-name">Explainable Reports</div>
-              <div class="vmod-sub">Auditable AI-generated enforcement briefs</div>
+              <div class="vmod-name">Operator Reports</div>
+              <div class="vmod-sub">Auditable AI-generated risk briefs</div>
             </div>
           </div>
 
           <div class="vsignals">
-            <div class="vsignals-label">Global Supply Chain Signals</div>
+            <div class="vsignals-label">Port Risk Signals</div>
             <div class="vsig-row">
-              <span class="vsig-name">Origin Fraud</span>
+              <span class="vsig-name">Congestion</span>
               <div class="vsig-track"><div class="vsig-fill" style="width:78%"></div></div>
               <span class="vsig-type">High</span>
             </div>
             <div class="vsig-row">
-              <span class="vsig-name">Transshipment</span>
+              <span class="vsig-name">Demurrage</span>
               <div class="vsig-track"><div class="vsig-fill" style="width:63%"></div></div>
               <span class="vsig-type">Med</span>
             </div>
             <div class="vsig-row">
-              <span class="vsig-name">Entity Risk</span>
+              <span class="vsig-name">Delay Risk</span>
               <div class="vsig-track"><div class="vsig-fill" style="width:91%"></div></div>
               <span class="vsig-type">High</span>
             </div>
             <div class="vsig-row">
-              <span class="vsig-name">Maritime</span>
+              <span class="vsig-name">Route Alt.</span>
               <div class="vsig-track"><div class="vsig-fill" style="width:45%"></div></div>
               <span class="vsig-type">Low</span>
             </div>
@@ -967,7 +1449,6 @@
           <div class="vnode-graph">
             <div class="vnode-label">Entity Graph · Conceptual</div>
             <svg class="vnode-svg" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Edges -->
               <line x1="50" y1="45" x2="110" y2="22" stroke="rgba(59,130,246,0.22)" stroke-width="1"/>
               <line x1="50" y1="45" x2="110" y2="68" stroke="rgba(59,130,246,0.22)" stroke-width="1"/>
               <line x1="110" y1="22" x2="175" y2="15" stroke="rgba(6,182,212,0.18)" stroke-width="1"/>
@@ -976,7 +1457,6 @@
               <line x1="110" y1="68" x2="175" y2="75" stroke="rgba(6,182,212,0.18)" stroke-width="1"/>
               <line x1="175" y1="45" x2="228" y2="35" stroke="rgba(59,130,246,0.14)" stroke-width="1"/>
               <line x1="175" y1="45" x2="228" y2="58" stroke="rgba(59,130,246,0.14)" stroke-width="1"/>
-              <!-- Nodes -->
               <circle cx="50" cy="45" r="6" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
               <circle cx="110" cy="22" r="4.5" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
               <circle cx="110" cy="68" r="4.5" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
@@ -985,7 +1465,6 @@
               <circle cx="175" cy="75" r="3.5" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.3)" stroke-width="1"/>
               <circle cx="228" cy="35" r="3" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.22)" stroke-width="1"/>
               <circle cx="228" cy="58" r="3" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.22)" stroke-width="1"/>
-              <!-- Central node label -->
               <text x="50" y="60" font-family="monospace" font-size="6" fill="rgba(107,114,128,0.8)" text-anchor="middle">Importer</text>
               <text x="175" y="56" font-family="monospace" font-size="6" fill="rgba(107,114,128,0.8)" text-anchor="middle">Broker</text>
             </svg>
@@ -1002,15 +1481,45 @@
   <div class="container">
     <div class="section-label">// Featured Work</div>
     <h2>Projects.</h2>
-    <p class="section-desc">Six production-style builds across AI, backend, and embedded systems — shipped at hackathons, in independent study, and live online.</p>
+    <p class="section-desc">Six builds across backend engineering, applied AI, and embedded systems — shipped at hackathons, in independent study, and live online.</p>
 
     <div class="projects-grid">
+
+      <!-- INCIDENT API -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-num">01 / 06</div>
+            <div class="project-title">Incident API</div>
+            <div class="project-subtitle">Backend Engineering · REST API</div>
+            <div class="project-event">CS Independent Study · Santa Monica College · February 2026</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-smc">SMC Independent Study</span>
+          </div>
+        </div>
+        <p class="project-desc">Built a Spring Boot incident-management API with JWT authentication, PostgreSQL, Docker, Swagger/OpenAPI documentation, JUnit tests, and Postman validation — replicating backend engineering practices used in production environments.</p>
+        <ul class="project-features">
+          <li>Secure REST API with JWT auth and role-based access (create/update/close/list)</li>
+          <li>Relational data model: Users, Incidents, Events, Notes with CRUD + pagination</li>
+          <li>Dockerized with Docker Compose (API + PostgreSQL) + Swagger UI documentation</li>
+          <li>JUnit tests + GitHub Actions CI pipeline with automated reports &amp; badges</li>
+          <li>Postman test suite automated with Newman — smoke tests + health checks</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/alexronce4-lgtm/incident-api" target="_blank" rel="noopener" class="project-link">⬡ GitHub</a>
+          <a href="https://drive.google.com/drive/folders/1ISSqY8s3ZT1swcdqTT1sTR3SuCOrknsL?usp=sharing" target="_blank" rel="noopener" class="project-link link-demo">📁 Documentation</a>
+        </div>
+      </div>
 
       <!-- REACH -->
       <div class="project-card">
         <div class="project-header">
           <div>
-            <div class="project-num">01 / 06</div>
+            <div class="project-num">02 / 06</div>
             <div class="project-title">REACH</div>
             <div class="project-subtitle">AI Emergency Companion</div>
             <div class="project-event">Hack2Impact 2026 · UCLA · May 2026</div>
@@ -1021,7 +1530,7 @@
           </div>
         </div>
         <div class="award-banner">🏆 1st Place, End Overdose Track + Most Visionary Design Award</div>
-        <p class="project-desc">AI emergency companion built for the End Overdose nonprofit. One tap activates an AI chatbot that guides users through an overdose crisis in real time — voice input, computer-vision symptom detection, automatic EMS report generation, and live family alerts with GPS location.</p>
+        <p class="project-desc">Built emergency-response features including GPS alerts, overdose reporting flows, real-time AI crisis guidance, and user-centered support tools for the End Overdose nonprofit.</p>
         <ul class="project-features">
           <li>One-tap AI chatbot crisis guidance with voice input</li>
           <li>Computer-vision symptom detection (Claude Vision API)</li>
@@ -1043,7 +1552,7 @@
       <div class="project-card">
         <div class="project-header">
           <div>
-            <div class="project-num">02 / 06</div>
+            <div class="project-num">03 / 06</div>
             <div class="project-title">AURORA</div>
             <div class="project-subtitle">Global Energy Crisis Simulator</div>
             <div class="project-event">Google DeepMind × UCLA Hackathon · March 2026</div>
@@ -1053,7 +1562,7 @@
             <span class="badge badge-ucla">UCLA</span>
           </div>
         </div>
-        <p class="project-desc">Real-time global energy crisis simulator powered by a multi-agent Gemini 3.1 Pro architecture. Users select a target city and adjust parameters — fossil fuel reliance, geopolitical tension, renewable integration — and two AI agents generate a structured crisis response plan with full audit trail.</p>
+        <p class="project-desc">Built a real-time AI crisis simulator using a Planner → Critic reasoning loop, SQLite audit logs, and multimodal city-risk projections powered by Gemini 3.1 Pro and Imagen 3.</p>
         <ul class="project-features">
           <li>Planner → Critic → Verdict multi-agent pipeline with human-in-the-loop validation</li>
           <li>Imagen 3 generates city-specific photorealistic crisis projections</li>
@@ -1074,7 +1583,7 @@
       <div class="project-card">
         <div class="project-header">
           <div>
-            <div class="project-num">03 / 06</div>
+            <div class="project-num">04 / 06</div>
             <div class="project-title">MIRROR</div>
             <div class="project-subtitle">Preventive Health AI</div>
             <div class="project-event">PantherHacks 2026 · Chapman University · April 2026</div>
@@ -1084,12 +1593,12 @@
             <span class="badge badge-success">Healthcare Track</span>
           </div>
         </div>
-        <p class="project-desc">AI-powered wellness companion built in 48 hours at PantherHacks 2026. MIRROR analyzes facial images using Claude Vision AI to detect early signs of fatigue, stress, and dehydration, turning visual signals into structured health insights delivered by a voice companion, Megan.</p>
+        <p class="project-desc">AI-powered wellness companion built in 48 hours at PantherHacks 2026. MIRROR analyzes facial images using Claude Vision AI to detect early signs of fatigue, stress, and dehydration, turning visual signals into structured health insights delivered by a voice companion.</p>
         <ul class="project-features">
           <li>Claude Vision AI analyzes 4 facial zones: eyes, skin, muscles, posture</li>
           <li>face-api.js real-time detection with animated bounding box overlay</li>
           <li>3 wellness indicators: Fatigue %, Stress %, Dehydration %</li>
-          <li>Voice companion "Megan" delivers warm health insights via Web Speech API</li>
+          <li>Voice companion "Megan" delivers health insights via Web Speech API</li>
           <li>SQLite history with trend chart showing last 5 sessions</li>
         </ul>
         <div class="project-tags">
@@ -1098,36 +1607,6 @@
         <div class="project-links">
           <a href="https://github.com/alexronce4-lgtm/mirror-ai" target="_blank" rel="noopener" class="project-link">⬡ GitHub</a>
           <a href="https://devpost.com/software/mirror-yfkvn0" target="_blank" rel="noopener" class="project-link link-demo">↗ Devpost</a>
-        </div>
-      </div>
-
-      <!-- INCIDENT API -->
-      <div class="project-card">
-        <div class="project-header">
-          <div>
-            <div class="project-num">04 / 06</div>
-            <div class="project-title">Incident API</div>
-            <div class="project-subtitle">Production Support Dashboard</div>
-            <div class="project-event">CS Independent Study · Santa Monica College · February 2026</div>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-smc">SMC Independent Study</span>
-          </div>
-        </div>
-        <p class="project-desc">A production-grade REST API for managing incidents in real-time engineering environments. Built with JWT authentication, role-based access control, and a complete CI/CD pipeline, designed to replicate production engineering practices used at top tech companies.</p>
-        <ul class="project-features">
-          <li>Secure REST API with JWT auth and role-based access (create/update/close/list)</li>
-          <li>Relational data model: Users, Incidents, Events, Notes with CRUD + pagination</li>
-          <li>Dockerized with Docker Compose (API + PostgreSQL) + Swagger UI documentation</li>
-          <li>JUnit tests + GitHub Actions CI pipeline with automated reports & badges</li>
-          <li>Postman test suite automated with Newman — smoke tests + health checks</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/alexronce4-lgtm/incident-api" target="_blank" rel="noopener" class="project-link">⬡ GitHub</a>
-          <a href="https://drive.google.com/drive/folders/1ISSqY8s3ZT1swcdqTT1sTR3SuCOrknsL?usp=sharing" target="_blank" rel="noopener" class="project-link link-demo">📁 Documentation</a>
         </div>
       </div>
 
@@ -1141,10 +1620,10 @@
             <div class="project-event">24-Hour Team Hackathon · Cal State · April 2026</div>
           </div>
           <div class="project-badges">
-            <span class="badge badge-success">Live Production</span>
+            <span class="badge badge-success">Live</span>
           </div>
         </div>
-        <p class="project-desc">An AI-powered study companion built in 24 hours to help college students combat procrastination and study smarter. Features assignment analysis, AI-generated quizzes, personalized hour-by-hour study schedules, and a voice-enabled AI study coach.</p>
+        <p class="project-desc">AI-powered study companion built in 24 hours to help college students study smarter. Features assignment analysis, AI-generated quizzes, personalized hour-by-hour study schedules, and a voice-enabled AI coach.</p>
         <ul class="project-features">
           <li>Assignment Analyzer: AI extracts tasks directly from course text</li>
           <li>Quiz Generator: AI generates interactive quizzes from lecture notes</li>
@@ -1180,7 +1659,7 @@
           <li>Real-time biometric tracking: heart rate, temperature, humidity, motion</li>
           <li>React dashboard streams live sensor data via WebSocket</li>
           <li>Claude AI generates personalized burnout-prevention messages</li>
-          <li>Hands-on hardware + firmware + cloud full-stack experience</li>
+          <li>Hands-on hardware + firmware + cloud full-stack build</li>
         </ul>
         <div class="project-tags">
           <span class="tag">ESP32</span><span class="tag">Arduino IDE</span><span class="tag">ESP-NOW</span><span class="tag">React</span><span class="tag">WebSocket</span><span class="tag">Claude API</span>
@@ -1200,11 +1679,11 @@
     <div class="section-label">// USC Nanolab</div>
     <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:0.75rem;">
       <h2 style="margin-bottom:0;">CHIPS Fellows.</h2>
-      <span class="badge badge-usc">5% Acceptance Rate · 2026 Cohort</span>
+      <span class="badge badge-usc">Selected Cohort · 2026</span>
     </div>
     <p class="section-desc">
       <span style="font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--accent);">04/2026 – 05/2026 · Los Angeles, CA</span><br>
-      CHIPS Semiconductor Technician Fellow at <strong style="color:var(--text);">USC Nanolab</strong> — <strong style="color:var(--text);">52 hours</strong> of hands-on training in photolithography, wafer fabrication, cleanroom safety, equipment operation, and metrology.
+      CHIPS Semiconductor Technician Fellow at <strong style="color:var(--text);">USC Nanolab</strong> — <strong style="color:var(--text);">52 hours</strong> of hands-on semiconductor training in photolithography, wafer fabrication, cleanroom operations, and metrology.
     </p>
 
     <div class="chips-bullets">
@@ -1246,8 +1725,40 @@
       <div class="chips-card">
         <div class="chips-card-icon">◎</div>
         <h4>USC Nanolab · LA</h4>
-        <p>On-site research environment with industry-standard semiconductor equipment.</p>
+        <p>On-site training environment with industry-standard semiconductor equipment.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="section-label">// Recognition</div>
+    <h2>Awards.</h2>
+    <div class="awards-grid">
+
+      <div class="award-card-item">
+        <div class="award-icon-lg">🏆</div>
+        <div class="award-title-main">1st Place — Hack2Impact 2026</div>
+        <div class="award-sub-text">End Overdose Track · UCLA · May 2026</div>
+        <div class="award-detail-text">Won first place with REACH, an AI emergency companion for overdose response, built for and validated by the End Overdose nonprofit during a 24-hour hackathon at UCLA.</div>
+      </div>
+
+      <div class="award-card-item">
+        <div class="award-icon-lg">✦</div>
+        <div class="award-title-main">Most Visionary Design Award</div>
+        <div class="award-sub-text">Hack2Impact 2026 · UCLA · May 2026</div>
+        <div class="award-detail-text">Recognized for most visionary design in the End Overdose track, awarded alongside 1st Place for the REACH emergency companion project.</div>
+      </div>
+
+      <div class="award-card-item">
+        <div class="award-icon-lg">◈</div>
+        <div class="award-title-main">Most Fundable Companies — Quarter-Finals</div>
+        <div class="award-sub-text">Pepperdine Graziadio Business School · 2026</div>
+        <div class="award-detail-text">Counterpass AI advanced to quarter-finals, receiving structured investor-readiness feedback on market opportunity, go-to-market strategy, and fundraising readiness.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1267,7 +1778,7 @@
       <div class="skill-card">
         <h3>AI & Machine Learning</h3>
         <ul class="skill-list">
-          <li>Claude Vision API</li><li>Gemini 3.1 Pro / Imagen 3</li><li>Multi-Agent Systems</li><li>NLP & LLM Integration</li><li>Scikit-learn</li><li>DeepLearning.AI Certified</li>
+          <li>Claude Vision API</li><li>Gemini 3.1 Pro / Imagen 3</li><li>Multi-Agent Systems</li><li>NLP &amp; LLM Integration</li><li>Scikit-learn</li><li>DeepLearning.AI Certified</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -1279,13 +1790,12 @@
       <div class="skill-card">
         <h3>Tools & Practices</h3>
         <ul class="skill-list">
-          <li>Git / GitHub</li><li>JUnit / Postman / Newman</li><li>Swagger / OpenAPI</li><li>Princeton Algorithms I & II</li><li>Agile / Rapid Prototyping</li><li>Bilingual: French & English</li>
+          <li>Git / GitHub</li><li>JUnit / Postman / Newman</li><li>Swagger / OpenAPI</li><li>Princeton Algorithms I &amp; II</li><li>Agile / Rapid Prototyping</li><li>Bilingual: French &amp; English</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1333,6 +1843,19 @@
       t.classList.toggle("active", idx === i);
     });
   }
+
+  const hamburger = document.getElementById("navHamburger");
+  const navLinks = document.getElementById("navLinks");
+
+  hamburger.addEventListener("click", function() {
+    navLinks.classList.toggle("open");
+  });
+
+  navLinks.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      navLinks.classList.remove("open");
+    });
+  });
 </script>
 
 </body>
