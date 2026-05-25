@@ -430,10 +430,17 @@
     /* EXPERIENCE */
     #experience { background: var(--bg); }
 
-    .edu-program-card--sm { opacity: 0.75; }
-    .edu-program-card--sm .edu-prog-name { font-size: 0.8rem; }
-    .edu-program-card--sm .edu-prog-detail { font-size: 0.72rem; }
-    .edu-program-card--sm .edu-prog-icon { font-size: 0.75rem; color: var(--muted); }
+    .edu-program-card--sm {
+      background: none;
+      border: none;
+      padding: 0.15rem 0;
+      opacity: 0.6;
+      gap: 0.5rem;
+    }
+    .edu-program-card--sm:hover { border: none; }
+    .edu-program-card--sm .edu-prog-name { font-size: 0.75rem; font-weight: 400; font-family: 'DM Sans', sans-serif; }
+    .edu-program-card--sm .edu-prog-detail { font-size: 0.68rem; }
+    .edu-program-card--sm .edu-prog-icon { font-size: 0.6rem; color: var(--muted); margin-top: 0.2rem; }
 
     .exp-timeline { display: flex; flex-direction: column; gap: 0.6rem; }
 
